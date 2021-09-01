@@ -24,6 +24,7 @@ __all__ = [
     "csrf_rotation",
     "setup_jwt_cookie",
     "jwt_cookie",
+    "jwt_refresh_cookie",
     "ensure_token",
 ]
 
