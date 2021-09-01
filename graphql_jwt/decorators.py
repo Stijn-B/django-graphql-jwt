@@ -150,6 +150,9 @@ def setup_jwt_cookie(f):
 
         if getattr(info.context, "jwt_cookie", False):
             info.context.jwt_token = result.token
+
+        if getattr(info.context, "jwt_refresh_cookie", False):
+            info.context.refresh_token = result.refresh_token
         return result
 
     return wrapper
