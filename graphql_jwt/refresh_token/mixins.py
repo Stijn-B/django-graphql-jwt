@@ -15,15 +15,9 @@ from .shortcuts import create_refresh_token, get_refresh_token, refresh_token_la
 
 class RefreshTokenMixin:
 
-    @classmethod
-    def Field(cls, *args, **kwargs):
+    class Fields:
         if not jwt_settings.JWT_HIDE_REFRESH_TOKEN_FIELD and jwt_settings.JWT_LONG_RUNNING_REFRESH_TOKEN:
-            cls._meta.fields["refresh_token"] = graphene.Field(
-                graphene.String,
-                required=True,
-            )
-
-        return super().Field(*args, **kwargs)
+            refresh_token = graphene.String()
 
     @classmethod
     @setup_jwt_cookie
